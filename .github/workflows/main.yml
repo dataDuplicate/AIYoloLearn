@@ -10,7 +10,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v3.1.2
       - name: Run a one-line script
-        run: python bSpider.py 2 1 BV1w3411M7Kj
+        run: python bSpider.py 3 1 BV1w3411M7Kj
       - name: commit
         run: |
           git config --global user.email xxx.com
