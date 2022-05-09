@@ -1,0 +1,24 @@
+
+name: CI
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.2
+      - name: Run a one-line script
+        run: python bSpider.py BV1w3411M7Kj
+      - name: commit
+        run: |
+          git config --global user.email xxx.com
+          git config --global user.name robot
+          git add main
+          git commit -m "update" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${ secrets.GITHUB_TOKEN }
+    
